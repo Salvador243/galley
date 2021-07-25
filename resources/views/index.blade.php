@@ -13,6 +13,10 @@
 </head>
 
 <body>
-    <h1>Hola Mundo!!</h1>
+	<div class="container">
+		<div class="col-md mt-5">
+			<h1>Hola Mundo!!</h1>	
+		</div>
+	</div>
 </body>
 </html>
