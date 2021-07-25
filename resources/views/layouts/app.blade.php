@@ -20,8 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <header class="prueba">
+            <div id="app" class="prueba">
+        <nav class="menu-fixed wrap navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -79,5 +80,7 @@
             @yield('content')
         </main>
     </div>
+    </header>
+
 </body>
 </html>
