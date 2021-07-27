@@ -13,7 +13,7 @@ class AddGoogleIdColumn extends Migration
      */
     public function up()
     {
-        Schema::create('google_users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -33,6 +33,6 @@ class AddGoogleIdColumn extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('google_users');
+        Schema::dropIfExists('users');
     }
 }
