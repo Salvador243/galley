@@ -31,3 +31,10 @@ Route::post('forget-password', 'App\Http\Controllers\Auth\ForgotPasswordControll
 
 Route::get('reset-password/{token}', 'App\Http\Controllers\Auth\ResetPasswordController@getPassword');
 Route::post('reset-password', 'App\Http\Controllers\Auth\ResetPasswordController@updatePassword');
+
+// Default login
+Route::get('default/login', 'App\Http\Controllers\DefaultLoginController@login')->name('default-login');
+Route::post('default/login', 'App\Http\Controllers\DefaultLoginController@login')->name('default-login');
+
+Route::get('default/register', 'App\Http\Controllers\DefaultLoginController@register')->name('default-register');
+Route::post('default/register', 'App\Http\Controllers\DefaultLoginController@register')->name('default-register');

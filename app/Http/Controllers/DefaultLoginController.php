@@ -9,29 +9,29 @@ use Illuminate\Support\Facades\Hash;
 
 class DefaultLoginController extends Controller
 {
-    public function login($data){
-        $user = emailRegistred($data->email);
+    public function login(Request $request){
+        $user = $this->emailRegistred($request->input('email'));
         
         if(!$user)
             return;
         
-        if(!Hash::check($data->password, $user->password))
+        if(!Hash::check($request->input('password'), $user->password))
             return;
 
         Auth::login($user);
     }
 
-    public function register($data){
-        if(nameRegistred($data->name))
+    public function register(Request $request){
+        if($this->nameRegistred($request->input('name')))
             return;
 
-        if(emailRegistred($data->email))
+        if($this->emailRegistred($request->input('email')))
             return;
         
-        $user = new USer();
-        $user->name = $data->name;
-        $user->email = $data->email;
-        $user->password = Hash::make($data->password);
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
         $user->save();
     }
 
@@ -39,7 +39,7 @@ class DefaultLoginController extends Controller
         return User::where('name', '=', $username)->first();
     }
 
-    private function emailRegistred(string $email){
+    private function emailRegistred(String $email){
         return User::where('email', '=', $email)->first();
     }
 
